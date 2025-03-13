@@ -5,20 +5,22 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Starting Build Stage'
-                sh 'g++ main/hello.cpp -o hello -invalidflag' 
+                sh 'g++ main/newjenkins.cpp -o newjenkins'
             }
         }
 
         stage('Test') {
             steps {
                 echo 'Running Tests'
-                sh 'exit 1' 
+                sh './newjenkins'
             }
         }
 
         stage('Deploy') {
             steps {
-                sh 'cat nonexistent_file.txt' 
+                echo 'Starting Deploy Stage'
+            
+                sh 'echo "Deployment simulated."'
             }
         }
     }
